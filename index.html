@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StayMatch AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Background Shapes -->
+  <div class="ambient-bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <header>
+    <div class="logo">StayMatch AI</div>
+    <nav>
+      <a href="#" onclick="window.location.reload()">Home</a>
+      <a href="#">My Bookings</a>
+      <a href="#">Help</a>
+    </nav>
+  </header>
+
+  <main id="app-content">
+    <!-- Content injected here by Component Router -->
+  </main>
+
+  <!-- AI MCQ Modal Overlay -->
+  <div id="ai-modal" class="modal-overlay">
+    <div class="modal-content">
+      <div style="display:flex; justify-content:space-between; margin-bottom: 0.5rem; color: var(--text-light); font-size: 0.9rem; font-weight:600;">
+        <span id="question-counter">Question 1 of 6</span>
+        <span style="cursor:pointer;" onclick="closeModal()">✕ Close</span>
+      </div>
+      <div class="progress-bar">
+        <div id="progress-fill" class="progress-fill"></div>
+      </div>
+
+      <h2 id="question-text" class="question-text">Loading question...</h2>
+
+      <div id="options-grid" class="options-grid">
+        <!-- Rendered options go here -->
+      </div>
+
+      <div class="modal-footer">
+        <button id="btn-back" class="nav-btn btn-back" onclick="prevQuestion()" style="visibility:hidden;">Back</button>
+        <button id="btn-next" class="nav-btn btn-next" onclick="nextQuestion()" disabled>Next</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div id="loader" class="loader-view">
+    <div class="spinner"></div>
+    <h2 style="font-size: 1.5rem; font-weight: 700;">Our AI is finding your best match...</h2>
+  </div>
+
+  <!-- Data files -->
+  <script src="data.js"></script>
+  <script src="engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
